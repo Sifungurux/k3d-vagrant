@@ -10,6 +10,8 @@ K3d is a nice tool to run k3s (a distribution of K8s that is user friendly) in D
 
 ## Why K3d in Vagrant
 Clearly the idea is to be able to automate the quick creation and disposal of a K3d clusters without tainting your host operating system. Indeed, spinning up a cluster in the host will be much quicker but OTOH you can scrap the whole project by just calling `vagrant destroy -f` and then recreate with `vagrant up`.
+When cluster is running there is a lot of commands that can show and change the status of the cluster
+See [k3d](https://k3d.io/v5.3.0/usage/commands/k3d/)
 
 ## How to use?
 1. Change into `basebox/` directory and run `make-k3d-box.bat`. This will build the basebox. The idea behind the basebox is to set up all dependecies (Docker, K3s, k3d, container images, and other package) so you don't need to download them every time you spin off a child box. Very similar to the way base container images are used. You need to run this only once. You can re-run the command without creating problems. Once a week the basebox (Ubuntu 20.04 vagrant box) is updated so if you rebuild your basebox image you will get the updates. Update whenever you feel ok. This project is for experimentation purposes.
