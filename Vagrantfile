@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
     desk.vm.network  :private_network, ip: "10.0.0.#{BOX_COUNT+20}"
   end
   (1..BOX_COUNT).each do |i|
+    config.vm.synced_folder "~//git//k3d-vagrant>", "/vagrant", type: "virtualbox"
     config.vm.define "k3d#{i}" do |k3ds|
       k3ds.vm.box = IMAGE
       k3ds.vm.provider :virtualbox do |v|
