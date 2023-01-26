@@ -12,7 +12,18 @@ By setting framework to a specific type it can be concentrading its scan.
 
 Secreat scanning is included
 
-Checks are not rated from High to low but failed or passed
+Checks are not rated from High to low but failed or passed.
+Checkov // Bridgecrew has an enterprise verstion that require a API key. That offers a biggee suite of scannings abilities and functions
+Features and fuctions like
+
+- Incident insights
+- Pull request fixes
+- Runtime remediations
+- Dashboards
+- Supply Chain Graph visualization
+- Compliance reporting
+
+It requeres an online account at bridegegrew to use enterprise version 
 
 Trivy scan
 bridgecrew/checkov:latest amd64
