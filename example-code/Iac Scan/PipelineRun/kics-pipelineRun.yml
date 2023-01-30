@@ -1,10 +1,10 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  generateName: clone-read-run-test-scan-
+  name: clone-read-run-test-scan-kics
 spec:
   pipelineRef:
-    name: clone-read
+    name: clone-read-kics-scan
   podTemplate:
     securityContext:
       fsGroup: 65532

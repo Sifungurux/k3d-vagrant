@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: clone-read-kics-scan
+  name: clone-read-checkov-scan
 spec:
   description: |
     This pipeline clones a git repo, then echoes the README file to the stout.
@@ -24,7 +24,7 @@ spec:
     params:
     - name: url
       value: $(params.repo-url)
-  - name: checkov-scan-iac
+  - name: scan-code
     runAfter: ["fetch-source"]
     taskRef:
       name: checkov-scan

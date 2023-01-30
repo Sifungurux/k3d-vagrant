@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: task
 metadata:
-  name: checkov-scan
+  name: kics-scan
 spec:
   description: |
     Scans code for IaC related issus
@@ -9,9 +9,23 @@ spec:
   - name: source
     description: |
       Volume to Scan
-    mountPath: /tf
   steps:
   - name: scan
-    image: bridgecrew/checkov
+    image: checkmarx/kics:latest
     script: |
-      checkov  --directory $(workspaces.source.path) -o sarif --output-file-path /vagrant/sarif-raport
+      kics scan -p $(workspaces.source.path) -o /kics/sarif-raport --report-formats sarif --no-progress  --ignore-on-exit all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
