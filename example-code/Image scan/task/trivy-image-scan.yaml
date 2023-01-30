@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1beta1
+kind: task
+metadata:
+  name: container-image-scan
+spec:
+  description: |
+    Scans image for security related issus
+  workspaces:
+  - name: source
+    description: |
+      workspaces for saving results
+  params:
+    - name: image
+      description: Image to scan for vulnerabilities
+  steps:
+  - name: image-scan
+    image: aquasec/trivy:0.36.1
+    env:
+    - name: PARAM_SCAN
+      value: $(params.image)
+    script: |
+      trivy image ${PARAM_SCAN} --format sarif -o trivy-image-report.sarif
+
+
+
