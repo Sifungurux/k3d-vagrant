@@ -1,3 +1,5 @@
+# Trivy scan commands
+
 tkn t delete container-image-scan
 tkn p delete container-image-scan-pipeline
 tkn pr delete vulnerability-image-scanning
