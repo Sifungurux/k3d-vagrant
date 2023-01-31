@@ -20,3 +20,9 @@ spec:
   params:
   - name: image
     value: debian:latest
+  - name: version
+    value: latest
+  - name: format
+    value: sarif
+  - name: report-name
+    value: debian-trivy-scan

@@ -12,14 +12,19 @@ spec:
   params:
     - name: image
       description: Image to scan for vulnerabilities
+    - name: version
+      description: Version of Trivy scanner image
+    - name: format
+      description: Format to ouput report in
+      default: sarif
+    - name: report-name
+      description: Name of report
+      default: trivy-image-report
   steps:
   - name: image-scan
-    image: aquasec/trivy:0.36.1
-    env:
-    - name: PARAM_SCAN
-      value: $(params.image)
+    image: aquasec/trivy:$(params.version)
     script: |
-      trivy image ${PARAM_SCAN} --format sarif -o trivy-image-report.sarif
+      trivy image $(params.image) --format $(params.format) -o $(params.report-name).$(params.format) 
 
 
 

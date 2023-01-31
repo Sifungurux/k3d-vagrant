@@ -9,6 +9,15 @@ spec:
   - name: image
     type: string
     description: The image to scan
+  - name: version
+    type: string
+    description: Version of container image
+  - name: format
+    description: Format to ouput report in
+    type: string
+  - name: report-name
+    description: Name of report
+    type: string
   workspaces:
   - name: shared-data
     description: |
@@ -24,3 +33,9 @@ spec:
     params:
     - name: image
       value: $(params.image)
+    - name: version
+      value: $(params.version)
+    - name: format
+      value: $(params.format)
+    - name: report-name
+      value: $(params.report-name)
